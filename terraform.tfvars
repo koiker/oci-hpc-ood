@@ -19,7 +19,7 @@ vcn_id = "existing_vcn_ocid"                                #change this to the 
 
 ####### ood & identity variables #######
 
-domain_name = "ood-identity-domain1"
+domain_name = "ood-identity-domain"
 
 ood_username = "ood_user"
 
@@ -32,7 +32,7 @@ ood_user_password = "ilovehpc@oracle"                       #change this to the 
 ood_ad = 1
 targetCompartment = "comp1-ocid"
 subnet_ocid = "subnet-ocid"                                 #change this to the ocid of your subnet
-cluster_name = "OpenFOAM-Cluster"
+cluster_name = "OpenFOAM-Cluster"                           #change this to the name of your cluster
 ood_shape = "VM.Standard.E4.Flex"
 ood_ocpus = 2
 ood_memory = 16

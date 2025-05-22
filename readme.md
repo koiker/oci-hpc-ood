@@ -37,7 +37,7 @@ Update the remote exec section of the ood.tf file to use the correct script.
       # Download and install the latest version of Open OnDemand
       "wget https://raw.githubusercontent.com/koiker/oci-hpc/master/scripts/ood_ol9.sh", <---- update here>
       "chmod +x ood_ol9.sh",                                                            <--- update Here>
-      "sudo OOD_DNS=${local.ood_public_dns} OOD_USERNAME=${var.ood_username} CLIENT_ID=${var.app_client_id} CLIENT_SECRET=${var.app_client_secret} IDCS_URL=${var.idcs_endpoint} ./ood_ol9.sh",                                             <--- and here>
+      "sudo OOD_DNS=${local.ood_public_dns} OOD_USERNAME=${var.ood_username} CLIENT_ID=${var.app_client_id} CLIENT_SECRET=${var.app_client_secret} IDCS_URL=${var.idcs_endpoint} ./ood_ol9.sh", <--- and here>
       "echo 'Customizing UI'",
       "wget https://raw.githubusercontent.com/koiker/oci-hpc/master/scripts/customize_ui.sh",
       "chmod +x customize_ui.sh",

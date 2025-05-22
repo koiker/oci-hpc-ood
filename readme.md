@@ -23,6 +23,30 @@ Here is reference for Image OCID's based on the region you wish to deploy in.
 
 [Oracle Linux 9](https://docs.oracle.com/en-us/iaas/images/oracle-linux-9x/oracle-linux-9-5-2025-04-16-0.htm)
 
+[Oracle Linux 8](https://docs.oracle.com/en-us/iaas/images/oracle-linux-8x/oracle-linux-8-10-2025-04-16-0.htm)
+
+There is two shell scripts labeled ood.sh which is used for ol8 and ood_ol9 for ol9 please use them accordingly.
+Update the remote exec section of the ood.tf file to use the correct script.
+
+```
+
+# Provisioner to install and configure Open OnDemand
+  provisioner "remote-exec" {
+
+    inline = [
+      # Download and install the latest version of Open OnDemand
+      "wget https://raw.githubusercontent.com/koiker/oci-hpc/master/scripts/ood_ol9.sh", <---- update here>
+      "chmod +x ood_ol9.sh",                                                            <--- update Here>
+      "sudo OOD_DNS=${local.ood_public_dns} OOD_USERNAME=${var.ood_username} CLIENT_ID=${var.app_client_id} CLIENT_SECRET=${var.app_client_secret} IDCS_URL=${var.idcs_endpoint} ./ood_ol9.sh",                                             <--- and here>
+      "echo 'Customizing UI'",
+      "wget https://raw.githubusercontent.com/koiker/oci-hpc/master/scripts/customize_ui.sh",
+      "chmod +x customize_ui.sh",
+      "sudo ./customize_ui.sh",
+
+    ]
+
+```
+
 ```
 
 // Login credentials

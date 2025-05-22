@@ -54,9 +54,9 @@ resource "null_resource" "remote-exec" {
 
     inline = [
       # Download and install the latest version of Open OnDemand
-      "wget https://raw.githubusercontent.com/koiker/oci-hpc/master/scripts/ood.sh",
-      "chmod +x ood.sh",
-      "sudo OOD_DNS=${local.ood_public_dns} OOD_USERNAME=${var.ood_username} CLIENT_ID=${var.app_client_id} CLIENT_SECRET=${var.app_client_secret} IDCS_URL=${var.idcs_endpoint} ./ood.sh",
+      "wget https://raw.githubusercontent.com/koiker/oci-hpc/master/scripts/ood_ol9.sh",
+      "chmod +x ood_ol9.sh",
+      "sudo OOD_DNS=${local.ood_public_dns} OOD_USERNAME=${var.ood_username} CLIENT_ID=${var.app_client_id} CLIENT_SECRET=${var.app_client_secret} IDCS_URL=${var.idcs_endpoint} ./ood_ol9.sh",
       "echo 'Customizing UI'",
       "wget https://raw.githubusercontent.com/koiker/oci-hpc/master/scripts/customize_ui.sh",
       "chmod +x customize_ui.sh",

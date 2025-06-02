@@ -28,7 +28,7 @@ Here is reference for Image OCID's based on the region you wish to deploy in.
 There is two shell scripts labeled ood.sh which is used for ol8 and ood_ol9 for ol9 please use them accordingly.
 Update the remote exec section of the ood.tf file to use the correct script.
 
-```
+``` terraform
 
 # Provisioner to install and configure Open OnDemand
   provisioner "remote-exec" {
@@ -47,7 +47,7 @@ Update the remote exec section of the ood.tf file to use the correct script.
 
 ```
 
-```
+``` terraform
 
 // Login credentials
 provider_oci = {
@@ -60,7 +60,7 @@ provider_oci = {
 
 ```
 
-```
+``` terraform
 
 # Map with compartment name and compartment ocid in which resources will be deployed
 

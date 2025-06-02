@@ -47,7 +47,7 @@ resource "oci_identity_domains_app" "ood_app" {
   ]
 }
 
-resource "oci_identity_domains_user" "ood_user1" {
+resource "oci_identity_domains_user" "ood_user" {
 
   idcs_endpoint = oci_identity_domain.idcs_domain.url
   schemas       = var.user_schemas

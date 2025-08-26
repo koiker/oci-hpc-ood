@@ -10,5 +10,5 @@ output "ood_public_ip" {
 }
 
 output "ood_boostrap_cmd" {
-  value = "sudo OOD_DNS=${local.ood_public_dns} OOD_USERNAME=${var.ood_username} CLIENT_ID=${var.app_client_id} CLIENT_SECRET=${var.app_client_secret} IDCS_URL=${var.idcs_endpoint} ./ood.sh"
+  value = "sudo OOD_DNS=${local.ood_public_dns} OOD_USERNAME=${var.ood_username} CLIENT_ID=${var.app_client_id} CLIENT_SECRET=${var.app_client_secret} IDCS_URL=${var.idcs_endpoint} ./ood_ol9.sh"
 }

@@ -2,42 +2,42 @@
 // Authors: Germain Vargas, Rafael Marcelino Koike, Martin Feyereisen
 
 # Map with compartment name and compartment ocid in which resources will be deployed
-
-compartment_id = "compartment ocid"                    #change this to the ocid of your compartment
+compartment_id = "ocid1.tenancy.oc1..aaaaaaaa2l6fcfl7tfoun3i72tw4rjx4pja5lo7g5iakvptjzmuezihnr27q"
 
 # Local paths to the ssh keys used to ssh on the bastion and nodes
 ssh_keys = {
-  ssh_public_key  = "/path/to/keys"                         #change this to the path of your public key
-  ssh_private_key = "/path/to/keys"                        #change this to the path of your private key
+  ssh_public_key  = "~/koiker-oci-ashburn.key.pub"
+  ssh_private_key = "~/koiker-oci-ashburn.key"
 }
 
 ####### Networking #######
 
-vcn_display_name = "name of the existing VCN"               #change this to the name of your existing VCN
+vcn_display_name = "hpc_VCN"
 
-vcn_id = "existing_vcn_ocid"                                #change this to the ocid of your existing VCN
+vcn_id = "ocid1.vcn.oc1.iad.amaaaaaatyq6jnyavb3ja23nsq2bpau2s6v2rccdxxdduoz7ggo53s24jdpq"
 
 ####### ood & identity variables #######
 
 domain_name = "ood-identity-domain"
 
-ood_username = "ood_user"
+ood_username = "koiker"
 
-ood_user_email = "your email address"
+ood_user_email = "koike.rafael@gmail.com"
 
-ood_user_password = "ilovehpc@oracle"                       #change this to the password you want to use for the ood user
+ood_user_password = "iloveoracle!"
 
 ##### ood module #####
 
-ood_ad = 1
-targetCompartment = "comp1-ocid"
-subnet_ocid = "subnet-ocid"                                 #change this to the ocid of your subnet
-cluster_name = "OpenFOAM-Cluster"                           #change this to the name of your cluster
-ood_shape = "VM.Standard.E4.Flex"
+ood_ad = "iLlE:US-ASHBURN-AD-1"
+targetCompartment = "root"
+subnet_ocid = "ocid1.subnet.oc1.iad.aaaaaaaaakgs2mazuyioet2widoyyjgodbh7nfuadu5pe7y7sjoyuqugojta"
+cluster_name = "OpenFOAM-Cluster"
+ood_shape = "VM.Standard.E3.Flex"
 ood_ocpus = 2
 ood_memory = 16
 ood_boot_volume_size = 50
-ood_image_ocid = "image-ocid"                               #change this to the ocid of your image based on the region
+ood_image_ocid = "ocid1.image.oc1.iad.aaaaaaaatf3vyxzq3pv5jugwixnmnmh7aivqyhtlwalmgwquvp7c4npuy2ba"
+ssh_key = "ssh_private_key"
 
 
 

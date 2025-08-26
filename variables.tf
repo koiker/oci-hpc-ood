@@ -44,7 +44,7 @@ variable "ood_user_password" {
 }
 
 variable "ood_ad" {
-  type        = number
+  type        = string
 }
 
 variable "subnet_ocid" {
@@ -76,6 +76,10 @@ variable "ood_boot_volume_size" {
 }
 
 variable "ood_image_ocid" {
+  type        = string
+}
+
+variable "ssh_key" {
   type        = string
 }
 

@@ -4,7 +4,7 @@
 resource "oci_identity_domain" "idcs_domain" {
 
   compartment_id= var.compartment_id
-  display_name  = var.domain_name
+  display_name  = var.domain_name # is it being used?
   description   = "IDCS domain for OOD authentication"
   home_region   = "${var.region}"
   license_type  = "premium" # The license type can be "free" or "premium"
@@ -21,6 +21,11 @@ resource "oci_identity_domains_setting" "idcs_settings" {
   idcs_endpoint = oci_identity_domain.idcs_domain.url
   csr_access = var.csr_access
 }
+
+# data "oci_identity_domains_app_roles" "idcs_app_role_signin" {
+#   idcs_endpoint = oci_identity_domain.idcs_domain.url
+#   app_role_filter = "displayName eq \"Signin\""
+# }
 
 resource "oci_identity_domains_app" "ood_app" {
 
@@ -64,3 +69,39 @@ resource "oci_identity_domains_user" "ood_user" {
   }
   active = true
 }
+
+# Define App Roles for the ood_app
+# resource "oci_identity_domains_app_role" "ood_app_role_signin" {
+#   app {
+#       value = oci_identity_domains_app.ood_app.id
+#   }
+#   admin_role = true
+#   idcs_endpoint = oci_identity_domain.idcs_domain.url
+#   schemas      = ["urn:ietf:params:scim:schemas:oracle:idcs:AppRole"]
+#   display_name = "Signin"
+#   description  = "Role user sign-in"
+# }
+
+# resource "oci_identity_domains_app_role" "ood_app_role_id_admin" {
+#   app {
+#       value = oci_identity_domains_app.ood_app.id
+#   }
+#   admin_role = true
+#   available_to_clients = true
+#   idcs_endpoint = oci_identity_domain.idcs_domain.url
+#   schemas       = ["urn:ietf:params:scim:schemas:oracle:idcs:AppRole"]
+#   display_name  = "Identity Domain Administrator"
+#   description   = "Role for managing the identity domain"
+# }
+
+# resource "oci_identity_domains_app_role" "ood_app_role_me" {
+#   app {
+#       value = oci_identity_domains_app.ood_app.id
+#   }
+#   admin_role = true
+#   idcs_endpoint = oci_identity_domain.idcs_domain.url
+#   schemas      = ["urn:ietf:params:scim:schemas:oracle:idcs:AppRole"]
+#   display_name = "Me"
+#   description  = "Role for user-specific actions"
+
+# }

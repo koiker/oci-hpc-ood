@@ -15,6 +15,15 @@ data "oci_identity_availability_domains" "ads" {
   compartment_id = var.compartment_id
 }
 
+<<<<<<< HEAD
+=======
+# # define the data source for the VCN
+# data "oci_core_vcn" "existing_vcn" {
+#   vcn_id = var.vcn_id
+#   subnet_ids =
+# }
+
+>>>>>>> 848bab6 (Initialize Terraform project with configs, modules, and state files)
 module "controller" {
     source = "./modules/controller"
     compartment_id = var.compartment_id

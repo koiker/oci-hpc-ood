@@ -14,7 +14,7 @@ variable "ssh_keys" {           #Provide the SSH Key pairs for the ood
 }
 
 variable "ood_ad" {              #Provide the availability domain for the ood
-  type = number
+  type = string
 }
 
 variable "subnet_ocid" {           #Provide the subnet ocid for the ood

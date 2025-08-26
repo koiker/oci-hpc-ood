@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Copyright (c) 2025, Oracle and/or its affiliates. All rights reserved.
 // Authors: Germain Vargas, Rafael Marcelino Koike, Martin Feyereisen
 
@@ -10,6 +11,13 @@ resource "oci_core_instance" "ood" {
   compartment_id      = var.compartment_id
   display_name        = "${var.cluster_name}-ood"
   shape               = var.ood_shape
+=======
+resource "oci_core_instance" "ood" {
+  availability_domain = var.ood_ad
+  compartment_id      = var.compartment_id
+  display_name        = "${var.cluster_name}-ood"
+  shape              = var.ood_shape
+>>>>>>> 848bab6 (Initialize Terraform project with configs, modules, and state files)
 
   create_vnic_details {
     subnet_id        = var.subnet_ocid
@@ -54,9 +62,15 @@ resource "null_resource" "remote-exec" {
 
     inline = [
       # Download and install the latest version of Open OnDemand
+<<<<<<< HEAD
       "wget https://raw.githubusercontent.com/koiker/oci-hpc/master/scripts/ood_ol9.sh",        # <--- update file name if needed
       "chmod +x ood_ol9.sh",                                                                    # <--- update file name if needed,              theres one over here too ------>
       "sudo OOD_DNS=${local.ood_public_dns} OOD_USERNAME=${var.ood_username} CLIENT_ID=${var.app_client_id} CLIENT_SECRET=${var.app_client_secret} IDCS_URL=${var.idcs_endpoint} ./ood_ol9.sh", # <--- update file name if needed
+=======
+      "wget https://raw.githubusercontent.com/koiker/oci-hpc/master/scripts/ood_ol9.sh",
+      "chmod +x ood_ol9.sh",
+      "sudo OOD_DNS=${local.ood_public_dns} OOD_USERNAME=${var.ood_username} CLIENT_ID=${var.app_client_id} CLIENT_SECRET=${var.app_client_secret} IDCS_URL=${var.idcs_endpoint} ./ood_ol9.sh",
+>>>>>>> 848bab6 (Initialize Terraform project with configs, modules, and state files)
       "echo 'Customizing UI'",
       "wget https://raw.githubusercontent.com/koiker/oci-hpc/master/scripts/customize_ui.sh",
       "chmod +x customize_ui.sh",
@@ -71,4 +85,17 @@ resource "null_resource" "remote-exec" {
       host        = oci_core_instance.ood.public_ip
     }
   }
+<<<<<<< HEAD
 }
+=======
+}
+
+# Marketplace image details
+# data "oci_core_app_catalog_listing_resource_version" "ood_image" {
+#   count         = var.use_marketplace_image_ood ? 1 : 0
+#   listing_id    = var.marketplace_listing_id_HPC
+#   resource_version = var.marketplace_version_id[var.marketplace_listing_ood]
+# }
+
+# Path: scripts/ood.sh
+>>>>>>> 848bab6 (Initialize Terraform project with configs, modules, and state files)

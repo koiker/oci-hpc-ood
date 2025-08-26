@@ -36,6 +36,8 @@ variable "timezone" {
 
 variable "schemas" {
   type        = list(string)
+  default     = ["urn:ietf:params:scim:schemas:oracle:idcs:Settings"]
+  description = "The schema for the identity domain settings."
 }
 
 variable "setting_id" {
@@ -52,6 +54,8 @@ variable "ood_display_name" {
 
 variable "ood_schemas" {
   type        = list(string)
+  default     = ["urn:ietf:params:scim:schemas:oracle:idcs:App"]
+  description = "The schema for the OOD application."
 }
 
 variable "active" {
@@ -84,6 +88,8 @@ variable "client_ip_checking" {
 
 variable "user_schemas" {
   type        = list(string)
+  default     = ["urn:ietf:params:scim:schemas:core:2.0:User"]
+  description = "The schema for the user."
 }
 
 #### ood instance variables #####

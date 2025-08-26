@@ -18,7 +18,7 @@ data "oci_identity_availability_domains" "ads" {
 module "controller" {
     source = "./modules/controller"
     compartment_id = var.compartment_id
-    region = var.provider_oci.region
+    region = var.ood_region
     ssh_keys = var.ssh_keys
     ood_ad = var.ood_ad
     subnet_ocid = var.subnet_ocid

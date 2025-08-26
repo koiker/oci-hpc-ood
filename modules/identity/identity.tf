@@ -22,6 +22,7 @@ resource "oci_identity_domains_setting" "idcs_settings" {
   csr_access = var.csr_access
 }
 
+# Add this to HPC Stack
 resource "oci_identity_domains_app" "ood_app" {
 
   display_name = var.ood_display_name
@@ -31,6 +32,7 @@ resource "oci_identity_domains_app" "ood_app" {
   based_on_template {
     value = "CustomWebAppTemplateId"
   }
+
   active = var.active
   allowed_grants = var.allowed_grants                                   #["authorization_code", "client_credentials"]
   client_type = var.client_type                                         #"confidential"
@@ -45,6 +47,7 @@ resource "oci_identity_domains_app" "ood_app" {
   post_logout_redirect_uris = [
     "https://ood-${replace(var.ood_public_ip, ".", "-")}.nip.io/"
   ]
+
 }
 
 resource "oci_identity_domains_user" "ood_user" {

@@ -8,7 +8,7 @@ data "oci_identity_availability_domains" "ads" {
 resource "oci_core_instance" "ood" {
   availability_domain = data.oci_identity_availability_domains.ads.availability_domains[var.ood_ad].name
   compartment_id      = var.compartment_id
-  display_name        = "${var.cluster_name}-ood"
+  display_name        = "${var.cluster_name}-ood-${var.region}"
   shape               = var.ood_shape
 
   create_vnic_details {
@@ -54,9 +54,9 @@ resource "null_resource" "remote-exec" {
 
     inline = [
       # Download and install the latest version of Open OnDemand
-      "wget https://raw.githubusercontent.com/koiker/oci-hpc/master/scripts/ood_ol9.sh",        # <--- update file name if needed
-      "chmod +x ood_ol9.sh",                                                                    # <--- update file name if needed,              theres one over here too ------>
-      "sudo OOD_DNS=${local.ood_public_dns} OOD_USERNAME=${var.ood_username} CLIENT_ID=${var.app_client_id} CLIENT_SECRET=${var.app_client_secret} IDCS_URL=${var.idcs_endpoint} ./ood_ol9.sh", # <--- update file name if needed
+      "wget https://raw.githubusercontent.com/koiker/oci-hpc/master/scripts/ood.sh",        # <--- update file name if needed
+      "chmod +x ood.sh",                                                                    # <--- update file name if needed,              theres one over here too ------>
+      "sudo OOD_DNS=${local.ood_public_dns} OOD_USERNAME=${var.ood_username} CLIENT_ID=${var.app_client_id} CLIENT_SECRET=${var.app_client_secret} IDCS_URL=${var.idcs_endpoint} ./ood.sh", # <--- update file name if needed
       "echo 'Customizing UI'",
       "wget https://raw.githubusercontent.com/koiker/oci-hpc/master/scripts/customize_ui.sh",
       "chmod +x customize_ui.sh",

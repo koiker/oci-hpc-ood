@@ -1,0 +1,10 @@
+.terraform.lock.hcl
+.terraform/modules/modules.json
+.terraform/providers/registry.terraform.io/hashicorp/null/3.2.4/darwin_arm64/LICENSE.txt
+.terraform/providers/registry.terraform.io/hashicorp/null/3.2.4/darwin_arm64/terraform-provider-null_v3.2.4_x5
+.terraform/providers/registry.terraform.io/hashicorp/oci/7.3.0/darwin_arm64/terraform-provider-oci_v7.3.0
+.terraform/providers/registry.terraform.io/hashicorp/random/3.7.2/darwin_arm64/LICENSE.txt
+.terraform/providers/registry.terraform.io/hashicorp/random/3.7.2/darwin_arm64/terraform-provider-random_v3.7.2_x5
+provider.auto.tfvars
+terraform.tfstate
+terraform.tfvars

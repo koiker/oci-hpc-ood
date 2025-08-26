@@ -31,6 +31,11 @@ variable "domain_name" {
   type        = string
 }
 
+variable "ood_region" {
+  type        = string
+  default     = "us-ashburn-1"  # Default region, can be overridden
+}
+
 variable "ood_user_email" {
   type        = string
 }
@@ -48,10 +53,6 @@ variable "ood_ad" {
 }
 
 variable "subnet_ocid" {
-  type        = string
-}
-
-variable "targetCompartment" {
   type        = string
 }
 
